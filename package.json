@@ -1,0 +1,21 @@
+{
+    "name": "trung-docker-nodejs-helloworld",
+    "version": "0.0.1",
+    "description": "Hello World",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "express": "^4.12.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/trung-cao-30/docker-nodejs-helloworld.git"
+    },
+    "keywords": [
+        "node",
+        "express"
+    ],
+    "license": "MIT"
+}
