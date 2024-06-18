@@ -1,27 +1,27 @@
-name: Docker Image CLI
+# name: Docker Image CLI
 
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+# on:
+#   push:
+#     branches: [master]
+#   pull_request:
+#     branches: [master]
 
-jobs:
+# jobs:
 
-  build:
+#   build:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Docker Login
-      env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-    - name: Build The Docker Image
-      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/express-web-app:v0.1
+#     steps:
+#     - uses: actions/checkout@v3
+#     - name: Docker Login
+#       env:
+#         DOCKER_USER: ${{secrets.DOCKER_USER}}
+#         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+#       run: |
+#         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+#     - name: Build The Docker Image
+#       run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/express-web-app:v0.1
 
-    - name: Push Image To Docker Hub
-      run: docker push ${{secrets.DOCKER_USER}}/express-web-app:v0.1
+#     - name: Push Image To Docker Hub
+#       run: docker push ${{secrets.DOCKER_USER}}/express-web-app:v0.1
