@@ -12,10 +12,10 @@ pipeline {
         sh "docker build -t ${DOCKER_USER}/express-web-app:${BUILD_NUMBER} ."
       }
     }
-    // stage('Scan') {
-    //   steps {
-    //     sh 'trivy darinpope/java-web-app:latest'
-    //   }
-    // }
+    stage('Scan') {
+      steps {
+        sh "trivy image ${DOCKER_USER}/express-web-app:${BUILD_NUMBER}"
+      }
+    }
   }
 }
