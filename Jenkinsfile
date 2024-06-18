@@ -6,7 +6,7 @@ pipeline {
   environment {
     DOCKER_USER = 'tientrung30bkdn'
     IMAGE_NAME = 'express-web-app'
-    IMAGE_TAG = "${GIT_BRANCH}-commit-${GIT_COMMIT}-build-${BUILD_NUMBER}"
+    IMAGE_TAG = "${GIT_COMMIT}"
   }
   stages {
     stage('Build') {
