@@ -14,7 +14,7 @@ pipeline {
           withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'DOCKER_HUB_PASS', usernameVariable: 'DOCKER_HUB_USER')]) {
             sh "docker build -t ${DOCKER_HUB_USER}/express-web-app:${BUILD_NUMBER} ."
             sh "echo ${DOCKER_HUB_PASS} | docker login -u ${DOCKER_HUB_USER} --password-stdin"
-            sh "docker build -t ${DOCKER_HUB_USER}/express-web-app:${BUILD_NUMBER} ."
+            sh "docker push ${DOCKER_HUB_USER}/express-web-app:${BUILD_NUMBER}"
           }
         }
       }
